@@ -1,0 +1,42 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: puppet_apply
+  platform: centos
+  manifests_path:  manifests
+  modules_path: modules_mycompany
+  hiera_data_path: hieradata
+  require_puppet_repo: true
+  require_chef_for_busser: false
+  librarian_puppet_ssl_file: 'C:/repository/puppet_repo/cacert.pem'
+  puppet_debug: true
+  puppet_verbose: true
+  ignored_paths_from_root: []
+
+platforms:
+  - name: nocm_centos-6.5
+    driver_plugin: vagrant
+    driver_config:
+      box: nocm_centos-6.5
+      box_url: http://puppet-vagrant-boxes.puppetlabs.com/centos-65-x64-virtualbox-nocm.box
+
+verifier:
+  name: serverspec
+
+suites:
+  - name: base
+    provisioner:
+      custom_facts:
+        role_name1: base
+        role_name2: webserver
+    verifier:
+      patterns:
+      - modules/mycompany_base/spec/acceptance/base_spec.rb
+      env_vars:
+        TARGET_HOST: 127.0.0.1
+        TARGET_PORT: 2222
+        LOGIN_USER: vagrant
+        LOGIN_PASSWORD: vagrant
+
