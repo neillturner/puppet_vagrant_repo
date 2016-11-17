@@ -32,8 +32,10 @@ suites:
         role_name1: base
         role_name2: webserver
     verifier:
-      patterns:
-      - modules/mycompany_base/spec/acceptance/base_spec.rb
+      # test with default_pattern or specify a pattern in the repository
+      default_pattern: true
+      #patterns:
+      #- modules/mycompany_base/spec/acceptance/base_spec.rb
       env_vars:
         TARGET_HOST: 127.0.0.1
         TARGET_PORT: 2222
