@@ -1,5 +1,5 @@
 #require 'spec_helper'
-require 'spec/spec_helper.rb'
+require './spec/spec_helper.rb'
 
 if os[:family] == 'ubuntu'
       describe '/etc/lsb-release' do
