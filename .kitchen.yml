@@ -50,4 +50,22 @@ suites:
         TARGET_PORT: 2222
         LOGIN_USER: root
         LOGIN_PASSWORD: puppet
-
+  - name: pup4
+    provisioner:
+      require_puppet_repo: false
+      require_puppet_collections: true
+      puppet_yum_collections_repo: https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
+      puppet_apt_collections_repo: http://apt.puppetlabs.com/puppetlabs-release-pc1-xenial.deb
+      custom_facts:
+        role_name1: base
+        role_name2: webserver
+    verifier:
+      # test with default_pattern or specify a pattern in the repository
+      default_pattern: true
+      #patterns:
+      #- modules/mycompany_base/spec/acceptance/base_spec.rb
+      env_vars:
+        TARGET_HOST: 127.0.0.1
+        TARGET_PORT: 2222
+        LOGIN_USER: root
+        LOGIN_PASSWORD: puppet

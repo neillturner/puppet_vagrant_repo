@@ -7,7 +7,7 @@ class mycompany_base
 {
 
   notify { 'test': }
-  notify { $::hello: }
+#  notify { $::hello: }
 # class { 'ntp': }
 
 }
