@@ -12,6 +12,7 @@ provisioner:
   librarian_puppet_ssl_file: 'C:/repository/puppet_repo/cacert.pem'
   puppet_debug: true
   puppet_verbose: true
+  install_custom_facts: true
   ignored_paths_from_root: []
   puppet_detailed_exitcodes: true
   puppet_whitelist_exit_code: 2
@@ -40,6 +41,12 @@ suites:
       custom_facts:
         role_name1: base
         role_name2: webserver
+#        my_hash:
+#          - one: hello
+#          - two: world
+#        other_hash:
+#          one: hello
+#          two: world
     verifier:
       # test with default_pattern or specify a pattern in the repository
       default_pattern: true
