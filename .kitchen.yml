@@ -9,7 +9,7 @@ provisioner:
   hiera_data_path: hieradata
   require_puppet_repo: true
   require_chef_for_busser: false
-  librarian_puppet_ssl_file: 'C:/repository/puppet_repo/cacert.pem'
+  librarian_puppet_ssl_file: 'C:/repository/puppet_vagrant_repo/cacert.pem'
   puppet_debug: true
   puppet_verbose: true
   install_custom_facts: true
